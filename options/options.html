@@ -62,7 +62,7 @@
           <div class="mt-field-group">
             <label for="deepl-api-key" class="mt-label" data-i18n="labelDeeplKey">Clé d'API DeepL (Auth-Key)</label>
             <div class="mt-input-password-wrapper">
-              <input type="password" id="deepl-api-key" class="mt-input" placeholder="Ex: 12345678-abcd-ef01-2345-6789abcdef01:fx" autocomplete="off" spellcheck="false">
+              <input type="password" id="deepl-api-key" class="mt-input" placeholder="Ex: 12345678-abcd-ef01-2345-6789abcdef01:fx" data-i18n-placeholder="placeholderDeeplKey" autocomplete="off" spellcheck="false">
               <button type="button" id="btn-toggle-deepl-key" class="mt-btn-icon" aria-label="Afficher la clé" data-i18n-aria-label="ariaToggleKey">👁️</button>
             </div>
             <p class="mt-help-text">
@@ -85,7 +85,7 @@
           <div class="mt-field-group">
             <label for="gemini-api-key" class="mt-label" data-i18n="labelGeminiKey">Clé d'API Google AI Studio (Gemini API Key)</label>
             <div class="mt-input-password-wrapper">
-              <input type="password" id="gemini-api-key" class="mt-input" placeholder="Ex: AIzaSy..." autocomplete="off" spellcheck="false">
+              <input type="password" id="gemini-api-key" class="mt-input" placeholder="Ex: AIzaSy..." data-i18n-placeholder="placeholderGeminiKey" autocomplete="off" spellcheck="false">
               <button type="button" id="btn-toggle-gemini-key" class="mt-btn-icon" aria-label="Afficher la clé" data-i18n-aria-label="ariaToggleKey">👁️</button>
             </div>
             <p class="mt-help-text">
@@ -99,12 +99,12 @@
               <button type="button" id="btn-refresh-gemini-models" class="mt-btn mt-btn-secondary" style="padding: 2px 8px; font-size: 11px; min-height: auto;" title="Interroger la liste officielle des modèles Google en direct" data-i18n="btnRefreshModels" data-i18n-title="titleRefreshModels">🔄 Actualiser les modèles</button>
             </div>
             <select id="gemini-model" class="mt-select">
-              <option value="gemini-3.5-flash-lite">gemini-3.5-flash-lite (Recommandé — Ultra-rapide &amp; économique)</option>
-              <option value="gemini-3.7-flash">gemini-3.7-flash (Nouveau modèle phare août 2026)</option>
+              <option value="gemini-3.5-flash-lite" data-i18n="optionGeminiFlashLite">gemini-3.5-flash-lite (Recommandé — Ultra-rapide &amp; économique)</option>
+              <option value="gemini-3.7-flash" data-i18n="optionGeminiFlash37">gemini-3.7-flash (Nouveau modèle phare août 2026)</option>
               <option value="gemini-2.5-flash">gemini-2.5-flash</option>
               <option value="gemini-2.5-flash-lite">gemini-2.5-flash-lite</option>
               <option value="gemini-2.0-flash">gemini-2.0-flash</option>
-              <option value="gemini-1.5-pro">gemini-1.5-pro (Raisonnement approfondi)</option>
+              <option value="gemini-1.5-pro" data-i18n="optionGeminiPro15">gemini-1.5-pro (Raisonnement approfondi)</option>
             </select>
             <p class="mt-help-text" id="help-gemini-models" data-i18n="helpGeminiModels">
               Les modèles sont synchronisés en temps réel avec l'API officielle Google AI Studio.
@@ -118,11 +118,11 @@
             <label for="llm-preset" class="mt-label" data-i18n="labelLlmPreset">Fournisseur ou Moteur LLM</label>
             <select id="llm-preset" class="mt-select">
               <option value="openai">OpenAI (gpt-4o-mini)</option>
-              <option value="groq">Groq Cloud (llama-3.3-70b-versatile — Inférence instantanée)</option>
+              <option value="groq" data-i18n="optionLlmGroq">Groq Cloud (llama-3.3-70b-versatile — Inférence instantanée)</option>
               <option value="mistral">Mistral AI (mistral-small-latest)</option>
-              <option value="ollama">Ollama (Local — http://localhost:11434)</option>
-              <option value="lmstudio">LM Studio (Local — http://localhost:1234)</option>
-              <option value="custom">Serveur Personnalisé (URL libre)</option>
+              <option value="ollama" data-i18n="optionLlmOllama">Ollama (Local — http://localhost:11434)</option>
+              <option value="lmstudio" data-i18n="optionLlmStudio">LM Studio (Local — http://localhost:1234)</option>
+              <option value="custom" data-i18n="optionLlmCustom">Serveur Personnalisé (URL libre)</option>
             </select>
           </div>
 
@@ -147,7 +147,7 @@
 
           <div class="mt-field-group">
             <label for="llm-model" class="mt-label" data-i18n="labelLlmModel">Identifiant du Modèle (Model Name)</label>
-            <input type="text" id="llm-model" class="mt-input" placeholder="Ex: gpt-4o-mini, llama-3.3-70b-versatile, llama3.2" spellcheck="false">
+            <input type="text" id="llm-model" class="mt-input" placeholder="Ex: gpt-4o-mini, llama-3.3-70b-versatile, llama3.2" data-i18n-placeholder="placeholderLlmModel" spellcheck="false">
           </div>
         </div>
 
@@ -155,7 +155,7 @@
         <div id="section-libretranslate" class="mt-provider-section mt-hidden">
           <div class="mt-field-group">
             <label for="libretranslate-url" class="mt-label" data-i18n="labelLibreTranslateUrl">URL de l'instance LibreTranslate</label>
-            <input type="url" id="libretranslate-url" class="mt-input" placeholder="https://libretranslate.com ou http://localhost:5000" spellcheck="false">
+            <input type="url" id="libretranslate-url" class="mt-input" placeholder="https://libretranslate.com ou http://localhost:5000" data-i18n-placeholder="placeholderLibreTranslateUrl" spellcheck="false">
             <p class="mt-help-text" data-i18n="helpLibreTranslateUrl">
               Indiquez l'URL de votre serveur auto-hébergé (ex: <code>http://localhost:5000</code> ou <code>http://192.168.1.50:5000</code>) ou d'une instance publique. Les connexions HTTP locales/LAN et HTTPS sont prises en charge.
             </p>
@@ -174,7 +174,7 @@
         <div id="section-mymemory" class="mt-provider-section mt-hidden">
           <div class="mt-field-group">
             <label for="mymemory-email" class="mt-label" data-i18n="labelMyMemoryEmail">Adresse e-mail (Optionnel — Quota étendu)</label>
-            <input type="email" id="mymemory-email" class="mt-input" placeholder="Ex: vous@domaine.com" spellcheck="false">
+            <input type="email" id="mymemory-email" class="mt-input" placeholder="Ex: vous@domaine.com" data-i18n-placeholder="placeholderMyMemoryEmail" spellcheck="false">
             <p class="mt-help-text" data-i18n="helpMyMemoryEmail">
               Renseigner une adresse e-mail permet de porter gratuitement votre quota de 5 000 à 50 000 caractères par jour, sans carte bancaire.
             </p>

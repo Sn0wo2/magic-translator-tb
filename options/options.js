@@ -14,16 +14,16 @@
  * @param {string} [repli=""] - Texte de repli si la clé est absente
  * @returns {string}
  */
-function t(cle, repli = "") {
+function t(cle, repli = "", remplacement) {
   try {
     if (typeof browser !== "undefined" && browser.i18n && browser.i18n.getMessage) {
-      const msg = browser.i18n.getMessage(cle);
+      const msg = browser.i18n.getMessage(cle, remplacement);
       if (msg) return msg;
     }
   } catch {
     // Ignorer
   }
-  return repli;
+  return remplacement === undefined ? repli : repli.replace("{msg}", remplacement);
 }
 
 /**
@@ -247,13 +247,13 @@ document.addEventListener("DOMContentLoaded", async () => {
    */
   async function actualiserModelesGemini(apiKey, silencieux = false) {
     if (!apiKey || !apiKey.trim()) {
-      if (!silencieux) afficherStatut("Veuillez d'abord saisir une clé d'API Google AI Studio.", "error");
+      if (!silencieux) afficherStatut(t("statusGeminiKeyRequired", "Veuillez d'abord saisir une clé d'API Google AI Studio."), "error");
       return;
     }
 
     if (btnRefreshGeminiModels) {
       btnRefreshGeminiModels.disabled = true;
-      btnRefreshGeminiModels.textContent = "⏳ Chargement…";
+      btnRefreshGeminiModels.textContent = t("statusGeminiModelsLoading", "⏳ Chargement…");
     }
 
     // Demande de permission sous geste utilisateur uniquement (clic explicite)
@@ -295,24 +295,24 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         if (helpGeminiModels) {
-          helpGeminiModels.textContent = `✓ ${reponse.models.length} modèles disponibles synchronisés avec Google AI Studio.`;
+          helpGeminiModels.textContent = t("statusGeminiModelsAvailable", "✓ {count} modèles disponibles synchronisés avec Google AI Studio.").replace("{count}", reponse.models.length);
         }
 
         if (!silencieux) {
-          afficherStatut(`✓ ${reponse.models.length} modèles Gemini synchronisés avec succès !`, "success");
+          afficherStatut(t("statusGeminiModelsSynced", "✓ {count} modèles Gemini synchronisés avec succès !").replace("{count}", reponse.models.length), "success");
         }
       } else {
-        const err = (reponse && reponse.message) || "Aucun modèle retourné.";
-        if (helpGeminiModels) helpGeminiModels.textContent = `⚠️ Erreur de synchronisation : ${err}`;
-        if (!silencieux) afficherStatut(`Impossible d'actualiser les modèles : ${err}`, "error");
+        const err = (reponse && reponse.message) || t("statusNoGeminiModels", "Aucun modèle retourné.");
+        if (helpGeminiModels) helpGeminiModels.textContent = t("statusGeminiModelsSyncError", "⚠️ Erreur de synchronisation : {msg}").replace("{msg}", err);
+        if (!silencieux) afficherStatut(t("statusGeminiModelsRefreshError", "Impossible d'actualiser les modèles : {msg}").replace("{msg}", err), "error");
       }
     } catch (err) {
-      if (helpGeminiModels) helpGeminiModels.textContent = `⚠️ Erreur : ${err.message}`;
-      if (!silencieux) afficherStatut(`Erreur : ${err.message}`, "error");
+      if (helpGeminiModels) helpGeminiModels.textContent = `⚠️ ${t("errorGeneric", "Erreur : {msg}", err.message)}`;
+      if (!silencieux) afficherStatut(t("errorGeneric", "Erreur : {msg}", err.message), "error");
     } finally {
       if (btnRefreshGeminiModels) {
         btnRefreshGeminiModels.disabled = false;
-        btnRefreshGeminiModels.textContent = "🔄 Actualiser les modèles";
+        btnRefreshGeminiModels.textContent = t("btnRefreshModels", "🔄 Actualiser les modèles");
       }
     }
   }
@@ -375,7 +375,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   } catch (err) {
     console.error("[MagicTranslator Options] Erreur de chargement :", err);
-    afficherStatut("Impossible de charger les préférences.", "error");
+    afficherStatut(t("statusOptionsLoadError", "Impossible de charger les préférences."), "error");
   }
 
   // ── Événements de changement de fournisseur ─────────────────────────────────
@@ -488,7 +488,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
       } catch (err) {
         console.error("[MagicTranslator Options] Erreur autorisation 1-clic :", err);
-        afficherStatut(`${t("errorGeneric", "Erreur :")} ${err.message}`, "error");
+        afficherStatut(t("errorGeneric", "Erreur : {msg}", err.message), "error");
       }
     });
   }
@@ -499,7 +499,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const estMasque = input.type === "password";
       input.type = estMasque ? "text" : "password";
       btn.textContent = estMasque ? "🔒" : "👁️";
-      btn.setAttribute("aria-label", estMasque ? "Masquer la clé" : "Afficher la clé");
+      btn.setAttribute("aria-label", estMasque ? t("ariaHideKey", "Masquer la clé") : t("ariaShowKey", "Afficher la clé"));
     });
   }
 
@@ -620,13 +620,13 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Validation préalable
     if (provider === "deepl" && !config.deeplApiKey) {
-      afficherStatut("Veuillez renseigner votre clé d'API DeepL avant de tester.", "error");
+      afficherStatut(t("errorDeeplKeyRequired", "Veuillez renseigner votre clé d'API DeepL avant de tester."), "error");
       inputDeeplKey.focus();
       return;
     }
 
     if (provider === "gemini" && !config.geminiApiKey) {
-      afficherStatut("Veuillez renseigner votre clé d'API Google AI Studio avant de tester.", "error");
+      afficherStatut(t("errorGeminiKeyRequired", "Veuillez renseigner votre clé d'API Google AI Studio avant de tester."), "error");
       inputGeminiKey.focus();
       return;
     }
@@ -635,19 +635,19 @@ document.addEventListener("DOMContentLoaded", async () => {
       const preset = config.llmPreset;
       const exigeCle = preset === "openai" || preset === "groq" || preset === "mistral";
       if (exigeCle && !config.llmApiKey) {
-        afficherStatut(`Veuillez renseigner votre clé d'API pour ${selectLlmPreset.selectedOptions[0].text.split("(")[0].trim()}.`, "error");
+        afficherStatut(t("errorLlmKeyRequired", "Veuillez renseigner votre clé d'API pour {provider}.").replace("{provider}", selectLlmPreset.selectedOptions[0].text.split(/[（(]/)[0].trim()), "error");
         inputLlmApiKey.focus();
         return;
       }
       if (!config.llmBaseUrl) {
-        afficherStatut("Veuillez renseigner l'URL de base du serveur LLM.", "error");
+        afficherStatut(t("errorLlmBaseUrlRequired", "Veuillez renseigner l'URL de base du serveur LLM."), "error");
         inputLlmBaseUrl.focus();
         return;
       }
     }
 
     if (provider === "libretranslate" && !config.libretranslateUrl) {
-      afficherStatut("Veuillez renseigner l'URL de votre instance LibreTranslate.", "error");
+      afficherStatut(t("errorLibreTranslateUrlRequired", "Veuillez renseigner l'URL de votre instance LibreTranslate."), "error");
       inputLibreTranslateUrl.focus();
       return;
     }
@@ -701,7 +701,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         afficherStatut(`${t("statusTestError", "Échec du test :")} ${msg}`, "error");
       }
     } catch (err) {
-      afficherStatut(`${t("errorGeneric", "Erreur :")} ${err.message || "Impossible de contacter le service."}`, "error");
+      afficherStatut(t("errorGeneric", "Erreur : {msg}", err.message || "Impossible de contacter le service."), "error");
     } finally {
       btnTest.disabled = false;
       btnSave.disabled = false;
@@ -727,7 +727,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       afficherStatut(t("statusSaved", "✓ Préférences enregistrées avec succès !"), "success");
     } catch (err) {
       console.error("[MagicTranslator Options] Erreur sauvegarde :", err);
-      afficherStatut(`${t("errorGeneric", "Erreur lors de la sauvegarde :")} ${err.message}`, "error");
+      afficherStatut(t("errorGeneric", "Erreur lors de la sauvegarde : {msg}", err.message), "error");
     } finally {
       btnSave.disabled = false;
       btnTest.disabled = false;

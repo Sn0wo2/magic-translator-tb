@@ -331,5 +331,86 @@
   },
   "helpPreferLocalDetection": {
     "message": "Analyse la langue source en local sur votre ordinateur avant tout appel réseau (100% hors-ligne). Idéal pour LibreTranslate ou les modèles locaux (Ollama/LLMs) dépourvus de module d'auto-détection."
+  },
+  "placeholderDeeplKey": {
+    "message": "Ex: 12345678-abcd-ef01-2345-6789abcdef01:fx"
+  },
+  "placeholderGeminiKey": {
+    "message": "Ex: AIzaSy..."
+  },
+  "optionGeminiFlashLite": {
+    "message": "gemini-3.5-flash-lite (Recommandé — Ultra-rapide & économique)"
+  },
+  "optionGeminiFlash37": {
+    "message": "gemini-3.7-flash (Nouveau modèle phare août 2026)"
+  },
+  "optionGeminiPro15": {
+    "message": "gemini-1.5-pro (Raisonnement approfondi)"
+  },
+  "optionLlmGroq": {
+    "message": "Groq Cloud (llama-3.3-70b-versatile — Inférence instantanée)"
+  },
+  "optionLlmOllama": {
+    "message": "Ollama (Local — http://localhost:11434)"
+  },
+  "optionLlmStudio": {
+    "message": "LM Studio (Local — http://localhost:1234)"
+  },
+  "optionLlmCustom": {
+    "message": "Serveur Personnalisé (URL libre)"
+  },
+  "placeholderLlmModel": {
+    "message": "Ex: gpt-4o-mini, llama-3.3-70b-versatile, llama3.2"
+  },
+  "placeholderLibreTranslateUrl": {
+    "message": "https://libretranslate.com ou http://localhost:5000"
+  },
+  "placeholderMyMemoryEmail": {
+    "message": "Ex: vous@domaine.com"
+  },
+  "statusGeminiKeyRequired": {
+    "message": "Veuillez d'abord saisir une clé d'API Google AI Studio."
+  },
+  "statusGeminiModelsLoading": {
+    "message": "⏳ Chargement…"
+  },
+  "statusGeminiModelsAvailable": {
+    "message": "✓ {count} modèles disponibles synchronisés avec Google AI Studio."
+  },
+  "statusGeminiModelsSynced": {
+    "message": "✓ {count} modèles Gemini synchronisés avec succès !"
+  },
+  "statusNoGeminiModels": {
+    "message": "Aucun modèle retourné."
+  },
+  "statusGeminiModelsSyncError": {
+    "message": "⚠️ Erreur de synchronisation : {msg}"
+  },
+  "statusGeminiModelsRefreshError": {
+    "message": "Impossible d'actualiser les modèles : {msg}"
+  },
+  "statusOptionsLoadError": {
+    "message": "Impossible de charger les préférences."
+  },
+  "errorDeeplKeyRequired": {
+    "message": "Veuillez renseigner votre clé d'API DeepL avant de tester."
+  },
+  "errorGeminiKeyRequired": {
+    "message": "Veuillez renseigner votre clé d'API Google AI Studio avant de tester."
+  },
+  "errorLlmKeyRequired": {
+    "message": "Veuillez renseigner votre clé d'API pour {provider}."
+  },
+  "errorLlmBaseUrlRequired": {
+    "message": "Veuillez renseigner l'URL de base du serveur LLM."
+  },
+  "errorLibreTranslateUrlRequired": {
+    "message": "Veuillez renseigner l'URL de votre instance LibreTranslate."
+  },
+  "ariaShowKey": {
+    "message": "Afficher la clé"
+  },
+  "ariaHideKey": {
+    "message": "Masquer la clé"
   }
 }

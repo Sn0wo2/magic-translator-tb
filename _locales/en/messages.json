@@ -331,5 +331,86 @@
   },
   "helpPreferLocalDetection": {
     "message": "Analyzes the source language locally on your computer before any network call (100% offline). Ideal for LibreTranslate or local models (Ollama/LLMs) without built-in auto-detection."
+  },
+  "placeholderDeeplKey": {
+    "message": "e.g. 12345678-abcd-ef01-2345-6789abcdef01:fx"
+  },
+  "placeholderGeminiKey": {
+    "message": "e.g. AIzaSy..."
+  },
+  "optionGeminiFlashLite": {
+    "message": "gemini-3.5-flash-lite (Recommended — Ultra-fast & cost-effective)"
+  },
+  "optionGeminiFlash37": {
+    "message": "gemini-3.7-flash (New flagship model, August 2026)"
+  },
+  "optionGeminiPro15": {
+    "message": "gemini-1.5-pro (Advanced reasoning)"
+  },
+  "optionLlmGroq": {
+    "message": "Groq Cloud (llama-3.3-70b-versatile — Instant inference)"
+  },
+  "optionLlmOllama": {
+    "message": "Ollama (Local — http://localhost:11434)"
+  },
+  "optionLlmStudio": {
+    "message": "LM Studio (Local — http://localhost:1234)"
+  },
+  "optionLlmCustom": {
+    "message": "Custom server (Any URL)"
+  },
+  "placeholderLlmModel": {
+    "message": "e.g. gpt-4o-mini, llama-3.3-70b-versatile, llama3.2"
+  },
+  "placeholderLibreTranslateUrl": {
+    "message": "https://libretranslate.com or http://localhost:5000"
+  },
+  "placeholderMyMemoryEmail": {
+    "message": "e.g. you@example.com"
+  },
+  "statusGeminiKeyRequired": {
+    "message": "Please enter a Google AI Studio API key first."
+  },
+  "statusGeminiModelsLoading": {
+    "message": "⏳ Loading…"
+  },
+  "statusGeminiModelsAvailable": {
+    "message": "✓ {count} models available, synchronized with Google AI Studio."
+  },
+  "statusGeminiModelsSynced": {
+    "message": "✓ {count} Gemini models synchronized successfully!"
+  },
+  "statusNoGeminiModels": {
+    "message": "No models returned."
+  },
+  "statusGeminiModelsSyncError": {
+    "message": "⚠️ Synchronization error: {msg}"
+  },
+  "statusGeminiModelsRefreshError": {
+    "message": "Unable to refresh models: {msg}"
+  },
+  "statusOptionsLoadError": {
+    "message": "Unable to load preferences."
+  },
+  "errorDeeplKeyRequired": {
+    "message": "Please enter your DeepL API key before testing."
+  },
+  "errorGeminiKeyRequired": {
+    "message": "Please enter your Google AI Studio API key before testing."
+  },
+  "errorLlmKeyRequired": {
+    "message": "Please enter your API key for {provider}."
+  },
+  "errorLlmBaseUrlRequired": {
+    "message": "Please enter the LLM server base URL."
+  },
+  "errorLibreTranslateUrlRequired": {
+    "message": "Please enter your LibreTranslate instance URL."
+  },
+  "ariaShowKey": {
+    "message": "Show key"
+  },
+  "ariaHideKey": {
+    "message": "Hide key"
   }
 }

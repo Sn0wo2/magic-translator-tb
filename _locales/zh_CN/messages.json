@@ -1,0 +1,416 @@
+{
+  "extName": {
+    "message": "Magic Translator"
+  },
+  "extDescription": {
+    "message": "在 Thunderbird 中直接翻译邮件，支持随时还原，使用 Google Translate。"
+  },
+  "bannerTitle": {
+    "message": "翻译器"
+  },
+  "labelFrom": {
+    "message": "源语言"
+  },
+  "labelTo": {
+    "message": "目标语言"
+  },
+  "btnTranslate": {
+    "message": "翻译"
+  },
+  "btnRetranslate": {
+    "message": "重新翻译"
+  },
+  "btnOriginal": {
+    "message": "原文"
+  },
+  "statusTranslating": {
+    "message": "正在翻译…"
+  },
+  "statusTranslated": {
+    "message": "已翻译"
+  },
+  "statusTranslatedFrom": {
+    "message": "已从 $LANG$ 翻译",
+    "placeholders": {
+      "lang": {
+        "content": "$1",
+        "example": "英语"
+      }
+    }
+  },
+  "errorSameLanguage": {
+    "message": "源语言和目标语言相同。"
+  },
+  "errorNoText": {
+    "message": "没有可翻译的文本。"
+  },
+  "errorGeneric": {
+    "message": "错误：$MSG$",
+    "placeholders": {
+      "msg": {
+        "content": "$1",
+        "example": "网络错误"
+      }
+    }
+  },
+  "tooltipExpand": {
+    "message": "翻译此邮件"
+  },
+  "actionTitle": {
+    "message": "翻译"
+  },
+  "toggleTranslatorTitle": {
+    "message": "启用/停用翻译器"
+  },
+  "menuOptionsTitle": {
+    "message": "选项/设置"
+  },
+  "optionsTitle": {
+    "message": "Magic Translator — 设置"
+  },
+  "optionsSubtitle": {
+    "message": "翻译引擎配置和高级选项"
+  },
+  "optActiveProviderLabel": {
+    "message": "当前翻译服务"
+  },
+  "badgeDefault": {
+    "message": "默认"
+  },
+  "optProviderGoogle": {
+    "message": "Google Translate（默认 — 免费，无需配置）"
+  },
+  "optProviderMyMemory": {
+    "message": "MyMemory（免费 — 无需密钥，每天 5,000 至 50,000 字符）"
+  },
+  "helpProviderMyMemory": {
+    "message": "通过 MyMemory（Translated.net）免费翻译，无需 API 密钥。"
+  },
+  "labelMyMemoryEmail": {
+    "message": "电子邮件地址（可选 — 提高配额）"
+  },
+  "helpMyMemoryEmail": {
+    "message": "填写电子邮件地址可将每日免费配额从 5,000 字符提高至 50,000 字符，无需信用卡。"
+  },
+  "optProviderDeepl": {
+    "message": "DeepL API（专业级翻译质量）"
+  },
+  "optProviderGemini": {
+    "message": "Google Gemini API（云端 — 快速且智能）"
+  },
+  "optProviderLlm": {
+    "message": "LLM 服务集（OpenAI、Groq、Mistral、Ollama、LM Studio、自定义）"
+  },
+  "optProviderLibreTranslate": {
+    "message": "LibreTranslate（开源/自托管）"
+  },
+  "helpProviderGoogle": {
+    "message": "Google Translate 开箱即用，无需 API 密钥或任何配置。"
+  },
+  "labelDeeplKey": {
+    "message": "DeepL API 密钥（Auth-Key）"
+  },
+  "helpDeeplKey": {
+    "message": "可在此获取免费密钥（每月 500,000 字符）或专业版套餐："
+  },
+  "labelDeeplPlan": {
+    "message": "DeepL 订阅套餐"
+  },
+  "optDeeplPlanAuto": {
+    "message": "自动检测（推荐 — 根据 :fx 后缀判断）"
+  },
+  "optDeeplPlanFree": {
+    "message": "DeepL API Free（api-free.deepl.com）"
+  },
+  "optDeeplPlanPro": {
+    "message": "DeepL API Pro（api.deepl.com）"
+  },
+  "labelGeminiKey": {
+    "message": "Google AI Studio API 密钥（Gemini API Key）"
+  },
+  "helpGeminiKey": {
+    "message": "在此获取免费 API 密钥："
+  },
+  "labelGeminiModel": {
+    "message": "Gemini 模型"
+  },
+  "btnRefreshModels": {
+    "message": "🔄 刷新模型"
+  },
+  "titleRefreshModels": {
+    "message": "实时获取 Google 官方模型列表"
+  },
+  "helpGeminiModels": {
+    "message": "模型列表与 Google AI Studio 官方 API 实时同步。"
+  },
+  "labelLlmPreset": {
+    "message": "LLM 服务提供商或引擎"
+  },
+  "labelLlmBaseUrl": {
+    "message": "API 基础 URL"
+  },
+  "helpLlmBaseUrl": {
+    "message": "标准端点。将自动追加 /v1/chat/completions 路径。"
+  },
+  "labelLlmApiKey": {
+    "message": "API 密钥（Bearer Token）"
+  },
+  "placeholderLlmApiKey": {
+    "message": "如果无需密钥（本地服务），请留空"
+  },
+  "helpLlmApiKey": {
+    "message": "远程服务的身份验证令牌。"
+  },
+  "labelLlmModel": {
+    "message": "模型名称/标识符"
+  },
+  "labelLibreTranslateUrl": {
+    "message": "LibreTranslate 实例 URL"
+  },
+  "helpLibreTranslateUrl": {
+    "message": "输入自托管服务器 URL（例如 http://localhost:5000）或公共实例。原生支持本地/LAN HTTP 和远程 HTTPS 连接，无需代理。"
+  },
+  "labelLibreTranslateKey": {
+    "message": "LibreTranslate API 密钥（可选）"
+  },
+  "placeholderLtKey": {
+    "message": "如果无需密钥，请留空"
+  },
+  "btnTestConnection": {
+    "message": "测试连接"
+  },
+  "btnSavePreferences": {
+    "message": "保存首选项"
+  },
+  "btnTesting": {
+    "message": "正在测试连接…"
+  },
+  "btnSaving": {
+    "message": "正在保存…"
+  },
+  "statusSaved": {
+    "message": "首选项已成功保存！"
+  },
+  "statusTestSuccess": {
+    "message": "连接成功！"
+  },
+  "statusTestError": {
+    "message": "连接失败："
+  },
+  "errorKeyRequired": {
+    "message": "此服务提供商需要 API 密钥。"
+  },
+  "errorUrlRequired": {
+    "message": "服务器 URL 为必填项。"
+  },
+  "errorModelRequired": {
+    "message": "模型标识符为必填项。"
+  },
+  "ariaToggleKey": {
+    "message": "切换 API 密钥的显示状态"
+  },
+  "optionsFooter": {
+    "message": "Magic Translator · Manifest V3 版本 · 专为 Mozilla Thunderbird 设计"
+  },
+  "composeActionTitle": {
+    "message": "翻译"
+  },
+  "composeTitle": {
+    "message": "Magic Translator — 撰写邮件"
+  },
+  "composeOpenSettingsTooltip": {
+    "message": "打开翻译设置"
+  },
+  "composeSourceLangLabel": {
+    "message": "源语言"
+  },
+  "composeTargetLangLabel": {
+    "message": "目标语言"
+  },
+  "composeSwapLangsTooltip": {
+    "message": "交换语言"
+  },
+  "composeSelectionActive": {
+    "message": "已选择文本"
+  },
+  "composeTranslateSelectionOnly": {
+    "message": "仅翻译选中的内容"
+  },
+  "composeTranslateSubject": {
+    "message": "主题（邮件主题）"
+  },
+  "composeTranslateBody": {
+    "message": "邮件正文"
+  },
+  "composeBtnTranslate": {
+    "message": "翻译"
+  },
+  "composeBtnTranslateSelection": {
+    "message": "翻译"
+  },
+  "composeBtnRestore": {
+    "message": "还原原文"
+  },
+  "composeStatusReady": {
+    "message": "就绪"
+  },
+  "composeStatusTranslating": {
+    "message": "正在翻译…"
+  },
+  "composeStatusSuccess": {
+    "message": "邮件翻译成功 ✓"
+  },
+  "composeStatusRestoring": {
+    "message": "正在还原…"
+  },
+  "composeStatusRestored": {
+    "message": "已还原原文 ✓"
+  },
+  "composeStatusNoTab": {
+    "message": "未检测到撰写邮件标签页"
+  },
+  "composeStatusError": {
+    "message": "翻译错误"
+  },
+  "composeStatusNoScopeSelected": {
+    "message": "请至少勾选主题或正文"
+  },
+  "langAuto": {
+    "message": "自动检测"
+  },
+  "composeStatusRestorable": {
+    "message": "就绪（可还原）"
+  },
+  "composeStatusPermissionRequired": {
+    "message": "需要网络权限"
+  },
+  "permissionTitlePrefix": {
+    "message": "需要以下服务的权限："
+  },
+  "permissionDescPrefix": {
+    "message": "Thunderbird 需要获得您的许可才能连接到"
+  },
+  "btnGrantPermission": {
+    "message": "一键授予访问权限"
+  },
+  "statusPermissionGranted": {
+    "message": "✓ 已成功授予权限！引擎已就绪。"
+  },
+  "sectionErgonomicsTitle": {
+    "message": "易用性与行为"
+  },
+  "labelAutoTranslateOnClick": {
+    "message": "单击即可自动翻译"
+  },
+  "helpAutoTranslateOnClick": {
+    "message": "单击工具栏按钮或按 Alt+Shift+T 时立即翻译邮件，无需再点击横幅。"
+  },
+  "labelAlternateTarget": {
+    "message": "备用目标语言（双语翻译）"
+  },
+  "optAlternateNone": {
+    "message": "无（默认停用）"
+  },
+  "helpAlternateTarget": {
+    "message": "可选。如果收到的邮件已经使用主要目标语言撰写（例如，已经是英语），则自动切换到此备用语言。"
+  },
+  "labelAutoTranslateOnOpen": {
+    "message": "打开邮件时自动翻译（零点击模式）"
+  },
+  "helpAutoTranslateOnOpen": {
+    "message": "打开收到的邮件时自动翻译，无需任何点击，并将界面收起为快捷访问按钮。"
+  },
+  "optModeAllForeign": {
+    "message": "所有非目标语言邮件"
+  },
+  "optModeSelected": {
+    "message": "仅翻译以下选定语言的邮件："
+  },
+  "labelPreferLocalDetection": {
+    "message": "优先使用本地语言检测（Thunderbird 内置引擎）"
+  },
+  "helpPreferLocalDetection": {
+    "message": "在任何网络请求之前，于本机分析源语言（完全离线）。适用于 LibreTranslate 或不支持内置自动检测的本地模型（Ollama/LLM）。"
+  },
+  "placeholderDeeplKey": {
+    "message": "例如：12345678-abcd-ef01-2345-6789abcdef01:fx"
+  },
+  "placeholderGeminiKey": {
+    "message": "例如：AIzaSy..."
+  },
+  "optionGeminiFlashLite": {
+    "message": "gemini-3.5-flash-lite（推荐 — 超快且经济）"
+  },
+  "optionGeminiFlash37": {
+    "message": "gemini-3.7-flash（2026 年 8 月推出的旗舰新模型）"
+  },
+  "optionGeminiPro15": {
+    "message": "gemini-1.5-pro（深度推理）"
+  },
+  "optionLlmGroq": {
+    "message": "Groq Cloud（llama-3.3-70b-versatile — 极速推理）"
+  },
+  "optionLlmOllama": {
+    "message": "Ollama（本地 — http://localhost:11434）"
+  },
+  "optionLlmStudio": {
+    "message": "LM Studio（本地 — http://localhost:1234）"
+  },
+  "optionLlmCustom": {
+    "message": "自定义服务器（任意 URL）"
+  },
+  "placeholderLlmModel": {
+    "message": "例如：gpt-4o-mini、llama-3.3-70b-versatile、llama3.2"
+  },
+  "placeholderLibreTranslateUrl": {
+    "message": "https://libretranslate.com 或 http://localhost:5000"
+  },
+  "placeholderMyMemoryEmail": {
+    "message": "例如：you@example.com"
+  },
+  "statusGeminiKeyRequired": {
+    "message": "请先输入 Google AI Studio API 密钥。"
+  },
+  "statusGeminiModelsLoading": {
+    "message": "⏳ 正在加载…"
+  },
+  "statusGeminiModelsAvailable": {
+    "message": "✓ 已从 Google AI Studio 同步 {count} 个模型。"
+  },
+  "statusGeminiModelsSynced": {
+    "message": "✓ 已成功同步 {count} 个 Gemini 模型！"
+  },
+  "statusNoGeminiModels": {
+    "message": "未返回任何模型。"
+  },
+  "statusGeminiModelsSyncError": {
+    "message": "⚠️ 同步错误：{msg}"
+  },
+  "statusGeminiModelsRefreshError": {
+    "message": "无法刷新模型：{msg}"
+  },
+  "statusOptionsLoadError": {
+    "message": "无法加载首选项。"
+  },
+  "errorDeeplKeyRequired": {
+    "message": "测试前请填写 DeepL API 密钥。"
+  },
+  "errorGeminiKeyRequired": {
+    "message": "测试前请填写 Google AI Studio API 密钥。"
+  },
+  "errorLlmKeyRequired": {
+    "message": "请填写 {provider} 的 API 密钥。"
+  },
+  "errorLlmBaseUrlRequired": {
+    "message": "请填写 LLM 服务器的基础 URL。"
+  },
+  "errorLibreTranslateUrlRequired": {
+    "message": "请填写 LibreTranslate 实例的 URL。"
+  },
+  "ariaShowKey": {
+    "message": "显示密钥"
+  },
+  "ariaHideKey": {
+    "message": "隐藏密钥"
+  }
+}

@@ -64,6 +64,11 @@
       errorGeneric:       "Erreur : {msg}",
       tooltipExpand:      "Traduire ce message",
       tooltipCollapse:    "Replier",
+      engineTitle:        "Moteur actif : {engine} (Modifier dans les paramètres)",
+      engineTitlePermission: "Moteur actif : {engine} (⚠️ Accès réseau requis — Cliquez pour ouvrir les réglages)",
+      engineSettingsAria: "Paramètres du moteur de traduction",
+      engineNetworkAria:  "Accès réseau requis pour {engine}",
+      engineSettingsAriaFor: "Paramètres du moteur : {engine}",
       statusTranslatingChunk:  "Traduction… ({i}/{n})",
       statusTranslatedPartial: "Traduit partiellement",
       errorRateLimited:        "Trop de requêtes. Réessayez dans un instant.",
@@ -90,6 +95,11 @@
       errorGeneric:       "Error: {msg}",
       tooltipExpand:      "Translate this message",
       tooltipCollapse:    "Collapse",
+      engineTitle:        "Active engine: {engine} (Edit in settings)",
+      engineTitlePermission: "Active engine: {engine} (⚠️ Network access required — Click to open settings)",
+      engineSettingsAria: "Translation engine settings",
+      engineNetworkAria:  "Network access required for {engine}",
+      engineSettingsAriaFor: "Engine settings: {engine}",
       statusTranslatingChunk:  "Translating… ({i}/{n})",
       statusTranslatedPartial: "Partially translated",
       errorRateLimited:        "Too many requests. Try again shortly.",
@@ -229,6 +239,37 @@
       errorPermissionRequired: "Permissão necessária para {provider}: Clique no selo ⚙️ para abrir as definições.",
       statusAlreadyIn:         "Já em {lang}",
       statusTranslatedAlternate: "Traduzido para {lang} (destino alternativo)"
+    },
+    zh: {
+      autoDetect:         "自动检测",
+      bannerTitle:        "翻译器",
+      labelFrom:          "源语言",
+      labelTo:            "目标语言",
+      btnTranslate:       "翻译",
+      btnRetranslate:     "重新翻译",
+      btnOriginal:        "原文",
+      statusTranslating:  "正在翻译…",
+      statusTranslated:   "已翻译",
+      statusTranslatedFrom: "已从 {lang} 翻译",
+      errorSameLanguage:  "源语言和目标语言相同。",
+      errorNoText:        "没有可翻译的文本。",
+      errorGeneric:       "错误：{msg}",
+      tooltipExpand:      "翻译此邮件",
+      tooltipCollapse:    "收起",
+      engineTitle:        "当前引擎：{engine}（在设置中修改）",
+      engineTitlePermission: "当前引擎：{engine}（⚠️ 需要网络访问权限 — 点击打开设置）",
+      engineSettingsAria: "翻译引擎设置",
+      engineNetworkAria:  "{engine}需要网络访问权限",
+      engineSettingsAriaFor: "{engine}引擎设置",
+      statusTranslatingChunk: "正在翻译…（{i}/{n}）",
+      statusTranslatedPartial: "部分内容已翻译",
+      errorRateLimited:        "请求过于频繁，请稍后重试。",
+      errorServiceUnavailable: "翻译服务暂不可用，请稍后重试。",
+      errorTimeout:            "请求超时。请检查网络连接。",
+      errorNetwork:            "网络错误。请检查网络连接。",
+      errorPermissionRequired: "需要 {provider} 的权限：点击 ⚙️ 图标打开设置。",
+      statusAlreadyIn:         "已是 {lang}",
+      statusTranslatedAlternate: "已翻译为 {lang}（备用目标语言）"
     }
   };
 
@@ -946,8 +987,8 @@
     const badgeMoteur = document.createElement("button");
     badgeMoteur.type = "button";
     badgeMoteur.className = "mt-engine-badge";
-    badgeMoteur.title = "Moteur actif : Google Translate (Modifier dans les paramètres)";
-    badgeMoteur.setAttribute("aria-label", "Paramètres du moteur de traduction");
+    badgeMoteur.title = t("engineTitle", { engine: "Google Translate" });
+    badgeMoteur.setAttribute("aria-label", t("engineSettingsAria"));
 
     const badgeDot = document.createElement("span");
     badgeDot.className = "mt-engine-dot";
@@ -1376,7 +1417,7 @@
             if (ui.badgeMoteurLabel) {
               ui.badgeMoteurLabel.textContent = resultat.providerLabel;
             }
-            ui.badgeMoteur.title = `Moteur actif : ${resultat.providerNom || resultat.providerLabel} (Modifier dans les paramètres)`;
+            ui.badgeMoteur.title = t("engineTitle", { engine: resultat.providerNom || resultat.providerLabel });
           }
 
           if (lot.noeuds.length === 1) {
@@ -1595,14 +1636,14 @@
                 aPermissionMoteur = false;
                 origineRequise = res.requiredOrigin;
                 ui.badgeDot.classList.add("is-warning");
-                ui.badgeMoteur.title = `Moteur actif : ${nomComplet} (⚠️ Accès réseau requis — Cliquez pour ouvrir les réglages)`;
-                ui.badgeMoteur.setAttribute("aria-label", `Accès réseau requis pour ${nomComplet}`);
+                ui.badgeMoteur.title = t("engineTitlePermission", { engine: nomComplet });
+                ui.badgeMoteur.setAttribute("aria-label", t("engineNetworkAria", { engine: nomComplet }));
               } else {
                 aPermissionMoteur = true;
                 origineRequise = "";
                 ui.badgeDot.classList.remove("is-warning");
-                ui.badgeMoteur.title = `Moteur actif : ${nomComplet} (Modifier dans les paramètres)`;
-                ui.badgeMoteur.setAttribute("aria-label", `Paramètres du moteur : ${nomComplet}`);
+                ui.badgeMoteur.title = t("engineTitle", { engine: nomComplet });
+                ui.badgeMoteur.setAttribute("aria-label", t("engineSettingsAriaFor", { engine: nomComplet }));
               }
 
               // Récupération des options Mode Zéro-Clic
